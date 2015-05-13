@@ -814,6 +814,7 @@ void ViewProviderPartExt::updateVisual(const TopoDS_Shape& inputShape)
         Standard_Real AngDeflectionRads = AngularDeflection.getValue() / 180.0 * M_PI;
 
         // create or use the mesh on the data structure
+        BRepTools::Clean(cShape);
 #if OCC_VERSION_HEX >= 0x060600
         BRepMesh_IncrementalMesh(cShape,deflection,Standard_False,
                 AngDeflectionRads,Standard_True);
